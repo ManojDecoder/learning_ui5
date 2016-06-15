@@ -3,7 +3,7 @@ sap.ui.define([
 	"sap/ui/model/json/JSONModel"
 ], function (UIComponent, JSONModel) {
 	"use strict";
-	return UIComponent.extend("aw.ui.learning.Component", {
+	return UIComponent.extend("guy.ui.test.Component", {
 		metadata: {
 			manifest: "json"
 		},
@@ -14,7 +14,7 @@ sap.ui.define([
 			// create a data model
 			var oData = {
 				recipient : {
-					name : "Gareth"
+					name : "Bugger"
 				}
 			};
 			

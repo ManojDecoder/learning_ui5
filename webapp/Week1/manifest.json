@@ -2,7 +2,7 @@
 	"_version": "1.1.0",
 	"sap.app": {
 		"_version": "1.1.0",
-		"id": "aw.ui.learning",
+		"id": "guy.ui.test",
 		"type": "application",
 		"i18n": "i18n/i18n.properties",
 		"title": "{{appTitle}}",
@@ -34,7 +34,7 @@
 	},
 	"sap.ui5": {
 		"_version": "1.1.0",
-		"rootView": "aw.ui.learning.view.App",
+		"rootView": "guy.ui.test.view.App",
 		"dependencies": {
 			"minUI5Version": "1.30",
 			"libs": {

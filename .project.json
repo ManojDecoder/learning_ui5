@@ -1,0 +1,26 @@
+{
+  "translation": {
+    "translationDomain": "",
+    "supportedLanguages": "",
+    "defaultLanguage": "",
+    "defaultI18NPropertyFile": "",
+    "resourceModelName": ""
+  },
+  "mockpreview": {
+    "mockUri": "/destinations/ES4/sap/opu/odata/IWBEP/GWSAMPLE_BASIC/",
+    "metadataFilePath": "",
+    "mockRequestsFilePath": "",
+    "loadJSONFiles": false,
+    "loadCustomRequests": false
+  },
+  "beautifier": {
+    "keep_array_indentation": false,
+    "break_chained_methods": true,
+    "space_before_conditional": true,
+    "unescape_strings": false,
+    "tab_size": "1",
+    "max_preserve_newlines": "2",
+    "wrap_line_length": "140",
+    "brace_style": "collapse"
+  }
+}
