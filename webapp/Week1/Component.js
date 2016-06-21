@@ -11,16 +11,9 @@ sap.ui.define([
 			// call the parent init function
 			UIComponent.prototype.init.apply(this, arguments);
 			
-			// create a data model
-			var oData = {
-				recipient : {
-					name : "Bugger"
-				}
-			};
+			this.getModel().setUseBatch(false);
 			
-			// set the data model into the view
-			var oModel = new JSONModel(oData);
-			this.setModel(oModel);
+		
 		}
 	});
 });

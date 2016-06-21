@@ -1,27 +1,144 @@
-<mvc:View xmlns="sap.m"
-xmlns:mvc="sap.ui.core.mvc"
-controllerName="guy.ui.test.controller.App"
-displayBlock="true">
+<mvc:View xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form"
+	controllerName="guy.ui.test.controller.App" displayBlock="true">
 	<App>
 		<pages>
-			<Page title="{i18n>homePageTitle}">
+			<Page title="Page" id="__page0">
 				<content>
-					<Panel headerText="{i18n>helloPanelTitle}">
-						<content>
-							<Button text="{i18n>showHelloButtonText}" press="onShowHello"/>
-							<Input value="{/recipient/name}" description="Hello {/recipient/name}" valueLiveUpdate="true" width="60%"/>
-						</content>
-					</Panel>
-					<Carousel activePage="__image0" showBusyIndicator="false" id="__carousel0" loop="true" orientation="vertical" pageIndicatorPlacement="Vertical">
-					    <pages>
-					        <Image id="__image0" src="https://upload.wikimedia.org/wikipedia/commons/2/25/Bosque_de_Piedra%2C_provincia_de_Varna%2C_Bulgaria%2C_2016-05-27%2C_DD_73.jpg"/>
-					        <Image id="__image1" src="https://upload.wikimedia.org/wikipedia/commons/1/1f/Cementera%2C_Yura%2C_Per%C3%BA%2C_2015-08-01%2C_DD_129-131_HDR.JPG"/>
-					        <Image id="__image2" src="https://upload.wikimedia.org/wikipedia/commons/7/73/Wilparting_Church_01.jpg"/>
-					        </pages>	
-					</Carousel>
-				</content>
-				<content>
-				<Button text="{i18n>showNewButtonText}" press="newAction"/>	
+					<IconTabBar id="__bar0" class="sapUIResponsiveContentPadding">
+						<items>
+							<IconTabFilter id="start" text="{i18n>gettingStartedFilter}">
+								<content>
+									<Carousel showBusyIndicator="false" id="__carousel0" height="60%">
+										<pages>
+											<Image id="__image0"
+												src="https://upload.wikimedia.org/wikipedia/commons/2/25/Bosque_de_Piedra%2C_provincia_de_Varna%2C_Bulgaria%2C_2016-05-27%2C_DD_73.jpg"/>
+											<Image id="__image1"
+												src="https://upload.wikimedia.org/wikipedia/commons/1/1f/Cementera%2C_Yura%2C_Per%C3%BA%2C_2015-08-01%2C_DD_129-131_HDR.JPG"/>
+											<Image id="__image2" src="https://upload.wikimedia.org/wikipedia/commons/7/73/Wilparting_Church_01.jpg"/>
+										</pages>
+									</Carousel>
+									<Button text="{i18n>showNewButtonText}" press="newAction" activeIcon="sap-icon://message-popup" icon="sap-icon://popup-window"
+										type="Emphasized"/>
+									<Input width="35%" id="__input1" value="{
+									 path:
+									'helloPanel>/recipient/name',
+									type: 'sap.ui.model.type.Float',
+									formatOptions: {
+									minFractionDigits : 2
+									},
+									constraints: {
+										maximum : 3000
+									}
+									}" 
+										valueLiveUpdate="false"/>
+								</content>
+							</IconTabFilter>
+							<IconTabFilter id="layouts" text="{i18n>layoutFilter}">
+								<content>
+									<MessageStrip text="this is a messageStrip showing a message , a very important message that messages a message message message."
+										showIcon="true" showCloseButton="true" id="__strip0"/>
+									<!--<core:Icon src="sap-icon://hello-world" size="8rem" /> -->
+									<f:SimpleForm id="SimpleFormChange" title="Address" editable="true" class="editableForm">
+										<f:content>
+											<Label text="{i18n>layoutFormName}"/>
+											<Input value="{address>/Name}"/>
+											<Label text="{i18n>layoutFormStreet}"/>
+											<Input value="{address>/Street}"/>
+											<Label text="{i18n>layoutFormHouseNumber}"/>
+											<Input value="{address>/HouseNumber}"/>
+											<Label text="{i18n>layoutFormZIPCode}"/>
+											<Input value="{address>/ZIPCode}"/>
+											<Label text="{i18n>layoutFormCity}"/>
+											<Input value="{address>/City}"/>
+											<Label text="{i18n>layoutFormCountry}"/>
+											<Select>
+												<items>
+													<core:Item text="{i18n>layoutCountryGermany}"/>
+													<core:Item text="{i18n>layoutCountryUSA}"/>
+													<core:Item text="{i18n>layoutCountryEngland}"/>
+												</items>
+											</Select>
+										</f:content>
+									</f:SimpleForm>
+									<Toolbar width="100%" id="__toolbar0" class="sapUISmallMarginTopBottom">
+										<content>
+											<ToolbarSpacer id="__spacer0"/>
+											<Button text="{i18n>layoutPublishButton}" icon="sap-icon://outbox" type="Accept"/>
+											<Button text="{i18n>layoutDraftButton}" icon="sap-icon://save"/>
+										</content>
+									</Toolbar>
+								</content>
+							</IconTabFilter>
+							<IconTabFilter text="{i18n>dataBidingtab}" key="db">
+								<content>
+									<List  width="auto" 
+									id="invoiceList" 
+									items="{
+										path: '/ProductSet' ,
+										sorter: {
+										path:'Category',
+										group: true
+										},
+										parameters : {
+										expand: 'ToSupplier'
+										}
+									}" 
+									growing="true"
+									growingThreshold="5"
+									growingScrollToLoad="false"
+									mode="SingleSelectMaster"
+									selectionChange="onItemSelected"
+									
+									>
+									<headerToolbar>
+										<Toolbar>
+											<Title text="Products" />
+											<ToolbarSpacer/>
+											<SearchField width="50%" search="onFilterProducts"/> 	
+										</Toolbar>
+									</headerToolbar>
+										<items>
+											<ObjectListItem
+											title="{Name}"
+											intro="{ProductID}"
+											number="{parts: [
+											'Price','CurrencyCode'
+											],
+											type: 'sap.ui.model.type.Currency',
+											formatOptions: {
+												showMeasure: false
+											}
+											}"
+											numberState="{= ${Price} > 500 ?'Error' : 'Success'}"
+											numberUnit="{CurrencyCode}"
+										 >
+												<firstStatus>
+													<!--<ObjectStatus text="{WeightUnit} , {WeightMeasure}"></ObjectStatus>-->
+													<ObjectStatus text="{ parts : [ 'WeightUnit', 'WeightMeasure' ], formatter: '.formatter.delivery' }"></ObjectStatus>
+												</firstStatus>
+												<secondStatus>
+													<ObjectStatus title="Delivered From" 
+													text="{ToSupplier/Address/City}"
+													/>
+												</secondStatus>
+											</ObjectListItem>
+										</items>
+									</List>
+									<Panel id="productDetailsPanel" headerText="Product Details" visible="false" >
+									<l:Grid>
+										<Text text="Product ID: {ProductID}" />
+										<Text text="Product Name: {Name}" />
+										<Text text="Description: {Description}" />
+										<Text text="Price: {Price}" />
+											  
+										
+									</l:Grid>	
+										
+									</Panel>
+								</content>
+							</IconTabFilter>
+						</items>
+					</IconTabBar>
 				</content>
 			</Page>
 		</pages>

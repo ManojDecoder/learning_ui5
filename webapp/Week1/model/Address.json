@@ -1,0 +1,12 @@
+{
+	"Name": "World",
+	"Street": "Foxtrot Av",
+	"HouseNumber": "123",
+	"ZIPCode": "GU51 3NE",
+	"City": "Middle of Nowhere",
+	"Country": "United Kingdom",
+	"Url": "http://www.google.com",
+	"Twitter": "@doesNotExist",
+	"Tel": "+44 0 7445 290555",
+	"Email": "doesnotexist@mailinator.com"
+}

@@ -7,8 +7,8 @@
     "resourceModelName": ""
   },
   "mockpreview": {
-    "mockUri": "/destinations/ES4/sap/opu/odata/IWBEP/GWSAMPLE_BASIC/",
-    "metadataFilePath": "",
+    "mockUri": "/destinations/ES4/sap/opu/odata/iwbep/GWSAMPLE_BASIC/",
+    "metadataFilePath": "localService/metadata.xml",
     "mockRequestsFilePath": "",
     "loadJSONFiles": false,
     "loadCustomRequests": false

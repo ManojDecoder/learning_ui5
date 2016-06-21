@@ -1,0 +1,44 @@
+<mvc:View xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc" controllerName="guy.ui.test.controller.App" displayBlock="true">
+	<App>
+		<pages>
+			<Page title="Page" id="__page0">
+				<content>
+					<IconTabBar id="__bar0">
+						<items>
+							<IconTabFilter id="start" text="{i18n>gettingStartedFilter}">
+								<content>
+									<Carousel showBusyIndicator="false" id="__carousel0">
+									    <pages>
+									       	<Image id="__image0"
+												src="https://upload.wikimedia.org/wikipedia/commons/2/25/Bosque_de_Piedra%2C_provincia_de_Varna%2C_Bulgaria%2C_2016-05-27%2C_DD_73.jpg"/>
+											<Image id="__image1"
+												src="https://upload.wikimedia.org/wikipedia/commons/1/1f/Cementera%2C_Yura%2C_Per%C3%BA%2C_2015-08-01%2C_DD_129-131_HDR.JPG"/>
+											<Image id="__image2" src="https://upload.wikimedia.org/wikipedia/commons/7/73/Wilparting_Church_01.jpg"/>
+									       </pages>
+									</Carousel>
+										<Button text="{i18n>showNewButtonText}" press="newAction" activeIcon="sap-icon://message-popup" icon="sap-icon://popup-window"
+										type="Emphasized"/>
+									<Input width="60%" id="__input1" value="{helloPanel>/recipient/name}" description="Hello {helloPanel>/recipient/name}"
+										valueLiveUpdate="true"/>
+									
+								</content>
+							</IconTabFilter>
+							<IconTabFilter id="layouts" text="{i18n>layoutFilter}">
+							    <content>
+							        <MessageStrip text="Information message" showIcon="true" showCloseButton="true" id="__strip0"/>
+							        <Toolbar width="100%" id="__toolbar0">
+							            <content>
+							                <ToolbarSpacer id="__spacer0"/>
+							              <Button text="{i18n>layoutPublishButton}" type="Accept"/>
+										<Button text="{i18n>layoutDraftButton}" />
+							            </content>
+							        </Toolbar>
+							    </content>
+							</IconTabFilter>
+							</items>
+					</IconTabBar>
+				</content>
+			</Page>
+		</pages>
+	</App>
+</mvc:View>

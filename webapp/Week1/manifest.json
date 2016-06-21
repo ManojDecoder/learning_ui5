@@ -11,13 +11,12 @@
 			"version": "1.0.0"
 		},
 		"dataSources": {
-			"ES4": {
-				"uri": "/destinations/ES4/sap/opu/odata/IWBEP/GWSAMPLE_BASIC/",
+			"ES4": { 
+				"uri": "/destinations/ES4/sap/opu/odata/iwbep/GWSAMPLE_BASIC/",
 				"type": "OData",
 				"settings": {
-					"annotations": [],
 					"odataVersion": "2.0",
-					"localUri": ""
+					"localUri": "localService/metadata.xml"
 				}
 			}
 		}
@@ -33,8 +32,10 @@
 		"supportedThemes": ["sap_bluecrystal"]
 	},
 	"sap.ui5": {
-		"_version": "1.1.0",
+		"_version": "1.2.0",
 		"rootView": "guy.ui.test.view.App",
+		"handleValidation": true,
+		"autoPrefixId": true,
 		"dependencies": {
 			"minUI5Version": "1.30",
 			"libs": {
@@ -45,11 +46,19 @@
 			"i18n": {
 				"type": "sap.ui.model.resource.ResourceModel",
 				"settings": {
-					"bundleName": "aw.ui.learning.i18n.i18n"
+					"bundleName": "guy.ui.test.i18n.i18n"
 				}
 			},
 			"": {
 				"dataSource": "ES4"
+			},
+			"helloPanel":{
+				"type":"sap.ui.model.json.JSONModel",
+				"uri": "model/HelloPanel.json"
+			},
+			"address":{
+				"type":"sap.ui.model.json.JSONModel",
+				"uri": "model/Address.json"
 			}
 		},
 		"contentDensities": {
